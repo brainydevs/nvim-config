@@ -2,7 +2,7 @@ set hidden
 set hlsearch
 set ignorecase
 set smartcase
-:cd ~
+":cd ~ "home dir
 set noswapfile
 set nobackup
 set encoding=utf-8
@@ -30,6 +30,7 @@ nnoremap <TAB>   :bn<CR>
 noremap <S-TAB> :bp<CR>
 nnoremap <silent> <A-q> :bd<CR>
 nnoremap <C-p> :FuzzyOpen<CR>
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 "plugins
 call plug#begin()
@@ -58,6 +59,7 @@ Plug 'mattn/emmet-vim', { 'for': ['html','xml','jsx','js']}
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'godlygeek/tabular', { 'on': ['Tab','Tabularize']}
 Plug 'mxw/vim-jsx' "react jsx
+Plug 'carlitux/deoplete-ternjs'
 call plug#end()
 
 let g:user_emmet_leader_key='<C-Y>'
@@ -96,3 +98,6 @@ let g:tsuquyomi_disable_quickfix = 1
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file 
+" Use tern_for_vim.
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
