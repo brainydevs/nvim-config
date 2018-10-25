@@ -168,7 +168,7 @@ hide_edge_borders both
 # To turn off pc:
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-		bindsym l exec --no-startup-id i3exit lock, mode "default"
+		bindsym l exec exec --no-startup-id i3exit lock, mode "default"
 				bindsym e exec --no-startup-id i3exit logout, mode "default"
 				bindsym s exec --no-startup-id i3exit suspend, mode "default"
 				bindsym h exec --no-startup-id i3exit hibernate, mode "default"
@@ -179,4 +179,12 @@ mode "$mode_system" {
 				bindsym Return mode "default"
 				bindsym Escape mode "default"
 }
-bindsym $mod+Pause mode "$mode_system"
+bindsym $mod+Shift+o mode "$mode_system"
+
+#Gnome tweak
+exec --no-startup-id gnome-settings-daemon
+exec --no-startup-id feh --bg-fill ~/Pictures/debian.png
+
+#Fix for screen tearing: install compton
+exec --no-startup-id compton --config ~/.config/compton.conf
+
