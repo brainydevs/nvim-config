@@ -18,6 +18,8 @@ set background=dark
 set relativenumber
 set numberwidth=1
 set scrolloff=5
+set tabstop=3
+set updatetime=100 "git gutter update
 
 "mappings
 map Y y$
@@ -31,11 +33,14 @@ noremap <S-TAB> :bp<CR>
 nnoremap <silent> <A-q> :bd<CR>
 nnoremap <C-p> :FuzzyOpen<CR>
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>gs :Gstatus<CR>
 
 "plugins
 call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'ternjs/tern_for_vim'
 Plug 'cloudhead/neovim-fuzzy'
